@@ -77,7 +77,7 @@ public func LHW_SPINLOCKER_UNLOCK(_ lock: inout OSSpinLock) {
 // MRAK: - Extensions
 extension Array where Element: AnyObject {
     public mutating func remove(object: Element) {
-        if let index = index(where: { $0 === object }) {
+        if let index = firstIndex(where: { $0 === object }) {
             remove(at: index)
         }
     }

@@ -179,7 +179,7 @@ public final class LHWActionStage {
             }
             
             if reuqestQueue.count != 0 {
-                guard let index = reuqestQueue.index(where: { $0 === actor }) else {
+                guard let index = reuqestQueue.firstIndex(where: { $0 === actor }) else {
                     return
                 }
                 
@@ -873,7 +873,7 @@ public final class LHWActionStage {
                     requestQueues.removeValue(forKey: requestActor.requestQueueName!)
                 }
             } else {
-                if let index = requestQueue.index(where: { $0 === requestActor }) {
+                if let index = requestQueue.firstIndex(where: { $0 === requestActor }) {
                     requestQueue.remove(at: index)
                 } else {
                     Logger.warning("===== Warning: request queue \"\(requestActor.requestQueueName ?? "")\" doesn't contain request to \(requestActor.path)")

@@ -122,7 +122,7 @@ public final class LHWLog {
     }
     
     // MARK: - Properties
-    open var debugPrint = false // set to true to debug the internal filter logic of the class
+    public var debugPrint = false // set to true to debug the internal filter logic of the class
     var reset = "\u{001b}[0m"
     var escape = "\u{001b}[38;5;"
     
@@ -142,9 +142,9 @@ public final class LHWLog {
     /// set custom file log level colors for each level
     private var fileLevelColor = FileLevelColor()
     
-    open private(set) var logToFileEnabled: Bool = true
+    public private(set) var logToFileEnabled: Bool = true
     
-    open static let `default` = LHWLog()
+    public static let `default` = LHWLog()
     
     private init() {
 //        #if DEBUG
@@ -213,37 +213,37 @@ public final class LHWLog {
     /// log something generally unimportant (lowest priority)
     public func verbose(_ message: @autoclosure () -> Any, _
         file: String = #file, _ function: String = #function, line: Int = #line) {
-        custom(level: .verbose, message: message, file: file, function: function, line: line)
+        custom(level: .verbose, message: message(), file: file, function: function, line: line)
     }
     
     /// log something which help during debugging (low priority)
     public func debug(_ message: @autoclosure () -> Any, _
         file: String = #file, _ function: String = #function, line: Int = #line) {
-        custom(level: .debug, message: message, file: file, function: function, line: line)
+        custom(level: .debug, message: message(), file: file, function: function, line: line)
     }
     
     /// log something which you are really interested but which is not an issue or error (normal priority)
     public func info(_ message: @autoclosure () -> Any, _
         file: String = #file, _ function: String = #function, line: Int = #line) {
-        custom(level: .info, message: message, file: file, function: function, line: line)
+        custom(level: .info, message: message(), file: file, function: function, line: line)
     }
     
     /// log something which may cause big trouble soon (high priority)
     public func warning(_ message: @autoclosure () -> Any, _
         file: String = #file, _ function: String = #function, line: Int = #line) {
-        custom(level: .warning, message: message, file: file, function: function, line: line)
+        custom(level: .warning, message: message(), file: file, function: function, line: line)
     }
     
     /// log something which will keep you awake at night (highest priority)
     public func error(_ message: @autoclosure () -> Any, _
         file: String = #file, _ function: String = #function, line: Int = #line) {
-        custom(level: .error, message: message, file: file, function: function, line: line)
+        custom(level: .error, message: message(), file: file, function: function, line: line)
     }
     
     /// custom logging to manually adjust values, should just be used by other frameworks
     public func custom(level: MGActionStageSwift.Level, message: @autoclosure () -> Any,
                        file: String = #file, function: String = #function, line: Int = #line) {
-        _log(level: level, message: message,
+        _log(level: level, message: message(),
                       file: file, function: function, line: line)
     }
     
@@ -283,7 +283,7 @@ public final class LHWLog {
     /// removes the parameters from a function because it looks weird with a single param
     private func stripParams(function: String) -> String {
         var f = function
-        if let indexOfBrace = f.index(of: "(") {
+        if let indexOfBrace = f.firstIndex(of: "(") {
             f = String(f.suffix(from: indexOfBrace))
         }
         f += "()"
@@ -491,7 +491,7 @@ public final class LHWLog {
     
     /// Remove a filter from the list of filters
     public func removeFilter(_ filter: LHWFilterType) {
-        let index = filters.index {
+        let index = filters.firstIndex {
             return ObjectIdentifier($0) == ObjectIdentifier(filter)
         }
         

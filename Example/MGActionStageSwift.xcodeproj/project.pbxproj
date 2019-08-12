@@ -47,7 +47,7 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		62BBEFD9F21F6A4B5F776905 /* Pods-MGActionStageSwift_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGActionStageSwift_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MGActionStageSwift_Example/Pods-MGActionStageSwift_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		7210C59936485D5DAF612405 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		9137E85361521B2FCBEE4F3F /* MGActionStageSwift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MGActionStageSwift.podspec; path = ../MGActionStageSwift.podspec; sourceTree = "<group>"; };
+		9137E85361521B2FCBEE4F3F /* MGActionStageSwift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MGActionStageSwift.podspec; path = ../MGActionStageSwift.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B6C37F4DD472A60A3153FCE2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		C3C857C1047C1B0C40BB4F92 /* Pods-MGActionStageSwift_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGActionStageSwift_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MGActionStageSwift_Tests/Pods-MGActionStageSwift_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		D179388BCB0F57F7C6F76F8B /* Pods-MGActionStageSwift_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGActionStageSwift_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MGActionStageSwift_Tests/Pods-MGActionStageSwift_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,7 +188,6 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				4C254E1812F4E5326E3907BD /* [CP] Embed Pods Frameworks */,
-				F6D0B9C27F92275D32F07EBC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -208,7 +207,6 @@
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
 				D0DF88CB3492CE421CAA34D5 /* [CP] Embed Pods Frameworks */,
-				9DCC61185DB964E836394AC0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,10 +230,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = RU85R33KSG;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = RU85R33KSG;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -246,6 +246,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -335,21 +336,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9DCC61185DB964E836394AC0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MGActionStageSwift_Tests/Pods-MGActionStageSwift_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D0DF88CB3492CE421CAA34D5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -368,21 +354,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MGActionStageSwift_Tests/Pods-MGActionStageSwift_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F6D0B9C27F92275D32F07EBC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MGActionStageSwift_Example/Pods-MGActionStageSwift_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -544,13 +515,14 @@
 			baseConfigurationReference = 62BBEFD9F21F6A4B5F776905 /* Pods-MGActionStageSwift_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RU85R33KSG;
 				INFOPLIST_FILE = MGActionStageSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -559,13 +531,14 @@
 			baseConfigurationReference = E56AAB9BA57DB29AEA02E028 /* Pods-MGActionStageSwift_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RU85R33KSG;
 				INFOPLIST_FILE = MGActionStageSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -573,6 +546,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C3C857C1047C1B0C40BB4F92 /* Pods-MGActionStageSwift_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = RU85R33KSG;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -594,6 +568,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D179388BCB0F57F7C6F76F8B /* Pods-MGActionStageSwift_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = RU85R33KSG;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
